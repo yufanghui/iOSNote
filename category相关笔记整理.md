@@ -69,7 +69,7 @@ load
 
 load的函数调用
 
-```
+```c++
 load_images(const char *path __unused, const struct mach_header *mh)
 {
     ......
@@ -98,7 +98,7 @@ void call_load_methods(void)
 
 `call_class_loads`
 
-```
+```c++
 // Call all +loads for the detached list.
 for (i = 0; i < used; i++) {
     Category cat = cats[i].cat;
@@ -132,7 +132,7 @@ for (i = 0; i < used; i++) {
 
 #####################准备类和分类的load方法列表###################
 
-```
+```c++
 void prepare_load_methods(const headerType *mhdr)
 {
     size_t count, i;
@@ -188,9 +188,9 @@ static void schedule_class_load(Class cls)
 1. 先调用父类的，再调用自身的
 2. 如果自身没有，因为消息发送机制，最终还是会调用到父类的，造成一种父类多次调用的现象。
 3. 有分类的，优先调用先编译的分类的。
-  initialize的函数调用
+    initialize的函数调用
 
-```
+```c++
 void initializeNonMetaClass(Class cls)
 {
  Class supercls;
