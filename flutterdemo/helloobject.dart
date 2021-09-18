@@ -16,23 +16,23 @@ main(List<String> args) {
 }
 
 class Person {
-  final String name;
-  final int age;
-  // double? height;
+  String? name;
+  int? age;
+  double? height;
 
-  Person(this.name, {int age}) : this.age = age ?? 10{
+  // Person(this.name, {int age}) : this.age = age ?? 10{
 
-  };
+  // };
   //语法糖
-  // Person(this.name, this.age);
+  Person(this.name, this.age);
   //命名构造函数
-  // Person.withNameAgeHeight(this.name, this.age, this.height);
+  Person.withNameAgeHeight(this.name, this.age, this.height);
 
-  // Person.fromMap(Map<String, dynamic> map) {
-  //   this.name = map["name"];
-  //   this.age = map["age"];
-  //   this.height = map["height"];
-  // }
+  Person.fromMap(Map<String, dynamic> map) {
+    this.name = map["name"];
+    this.age = map["age"];
+    this.height = map["height"];
+  }
 
   @override
   String toString() {
