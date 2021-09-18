@@ -4,9 +4,9 @@ main(List<String> args) {
   // final p1 = Person("why");
   // final p2 = Person("why");
   // print(identical(p1, p2));
-  const p1 = Person("why");
-  const p2 = Person("why");
-  const p3 = Person("why1");
+  // const p1 = Person("why");
+  // const p2 = Person("why");
+  // const p3 = Person("why1");
   // print(identical(p1, p3));
 
   var flag = true;
@@ -57,7 +57,29 @@ main(List<String> args) {
   test(() => print("箭头函数被调用"));
 
   // test2(sum);
-  print(test3()(1, 2));
+  // print(test3()(1, 2));
+
+//??=如果变量没有值，那么将23赋值过去。
+  var score = null;
+  // score ??= "23";
+  print(score);
+
+  //??前面的有值吗？有，用前面的，没有的话用后面的
+  var temp = score ?? "22";
+  print(temp);
+
+  final p = Person("张三")
+    ..eat()
+    ..run()
+    ..hi();
+
+  // for (var i = 0; i < names.length; i++) {
+  //   print(names[i]);
+  // }
+
+  for (var name in names) {
+    print(name);
+  }
 }
 
 //函数定义
@@ -133,6 +155,17 @@ void bar() {
 }
 
 class Person {
-  final String name;
-  const Person(this.name);
+  String name;
+  Person(this.name);
+  void eat() {
+    print("eat");
+  }
+
+  void run() {
+    print("run");
+  }
+
+  void hi() {
+    print("hi!my name is $name");
+  }
 }
